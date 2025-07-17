@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Topseller;
 
 
 class AuthenticationController extends Controller
@@ -22,10 +23,14 @@ class AuthenticationController extends Controller
         $query->where('category', $category);
     }
 
-    $products = $query->latest()->paginate(5)->appends(['category' => $category]);
+    $products = $query->latest()->get();
 
-    return view('dashboard', compact('products', 'category'));
+    //  top sellers
+    $topSellers = Topseller::latest()->take(10)->get();
+
+    return view('dashboard', compact('products', 'category', 'topSellers'));
 }
+
 
     public function showLogin() {
         return view('login');

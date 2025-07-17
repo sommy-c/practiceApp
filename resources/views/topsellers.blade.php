@@ -16,7 +16,7 @@
       <div class="product-details-page">
         <div class="product-info">
 
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-image" />
+            {{-- <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-image" />
 
              <h2>{{$product->name}}</h2>
              <p><strong>{{$product->price}}</strong></p>
@@ -31,7 +31,7 @@
                 @method('Delete')
                 @csrf
                 <button type="submit">Delete</button>
-            </form>
+            </form> --}}
 
         </div>
       </div>
@@ -40,3 +40,4 @@
     </div>
   </body>
 </html>
+

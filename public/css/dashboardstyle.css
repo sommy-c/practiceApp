@@ -104,7 +104,8 @@ body {
   margin: 2rem auto;
   padding: 0 1rem;
 }
-.category-bar {
+
+.cart-bar {
   display: flex;
   gap: 1rem;
   margin-left: -2rem;
@@ -112,6 +113,13 @@ body {
   width: 90vw;
   background-color: #f9f9f9;
   padding: 12px 14px;
+  justify-content: space-between;
+}
+.category-bar{
+    justify-content: space-between;
+    align-items: center;
+
+
 }
 .category-bar a {
   /* background: #e0e0e0; */
@@ -131,15 +139,119 @@ body {
   color: #007bff;
   font-weight: 500;
 }
-.products-grid {
+.addtocart {
+  display: inline-block;
+  position: relative;
+  border: none;
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 12px;
+  color: #070606;
+  font-size: 20px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+/* Bubble notification / badge */
+.cart-btn::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  color: #070606;
+  font-size: 12px;
+  width: 10px;
+  height: 10px;
+  /* line-height: 20px; */
+  text-align: center;
+  display: none;
+}
+
+/* Show badge only when count > 0 */
+.cart-btn[data-count]:not([data-count="0"])::after {
+  display: block;
+}
+
+.cart-btn:hover {
+
+  transform: scale(1.1);
+}
+
+/* .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 
 .product-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+} */
+.products-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem;
+  scroll-behavior: smooth;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.products-grid::-webkit-scrollbar {
+  display: none;
+}
+.scroll-wrapper {
+  position: relative;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.4rem 0.4rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+   margin-top: 5rem;
+}
+.scroll-btn.left {
+  left: 5rem;
+}
+
+.scroll-btn.right {
+  right: 5rem;
+}
+
+.product-card {
+  min-width: 200px;
+  flex-shrink: 0;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
@@ -200,6 +312,11 @@ body {
 
 .product-details button:hover {
   background-color: #0056b3;
+}
+/* Top selllers  */
+.top-products{
+    display: flex;
+    justify-content: space-between;
 }
 
 .upload-form {

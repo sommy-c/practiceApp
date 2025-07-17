@@ -1,12 +1,18 @@
 <?php
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TopsellerController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard');
 });
+use App\Http\Controllers\YourControllerName; // Replace with actual controller name
+
+Route::get('/', [AuthenticationController::class, 'showDashboard']);
+
 Route::get('/dashboard', [AuthenticationController::class, 'showDashboard'])->name('dashboard');
 Route::get('/login', [AuthenticationController::class, 'showLogin'])->name('login');
 Route::get('/signup', [AuthenticationController::class, 'showSignUp'])->name('signup');
@@ -26,4 +32,7 @@ Route::Put('/edit/{id}', [ProductController::class, 'updateProduct'])->name('upd
 Route::Delete('/product/{id}', [ProductController::class, 'deleteProduct'])->name('delete.product')->middleware('auth');
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
 
+// Top sellers
+
+Route::get('/topsellers', [TopsellerController::class, 'showTopSeller'])->name('top-seller');
 

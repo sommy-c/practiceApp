@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Topseller extends Model
 {
-    protected $fillable = [
+     protected $fillable = [
      'name',
      'user_id',
      'category',
@@ -16,12 +16,7 @@ class Product extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
-    }
-    public function review(){
-        return $this->hasMany(Review::class);
-    }
-
-
+    return $this->belongsTo(User::class);
+     }
 
 }
