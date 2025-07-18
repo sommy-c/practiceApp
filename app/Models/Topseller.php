@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topseller extends Model
 {
-     protected $fillable = [
-     'name',
-     'user_id',
-     'category',
-     'price',
-     'description',
-    'image',
-    ];
+    //  protected $fillable = [
+    //  'name',
+    //  'user_id',
+    //  'category',
+    //  'price',
+    //  'description',
+    // 'image',
+    // ];
 
-    public function user(){
-    return $this->belongsTo(User::class);
-     }
+    // public function user(){
+    // return $this->belongsTo(User::class);
+    //  }
 
 }

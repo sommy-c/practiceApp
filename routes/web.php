@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TopsellerController;
@@ -34,5 +35,9 @@ Route::get('/search', [ProductController::class, 'search'])->name('product.searc
 
 // Top sellers
 
-Route::get('/topsellers', [TopsellerController::class, 'showTopSeller'])->name('top-seller');
+Route::get('/topsellers', [ProductController::class, 'showTopSeller'])->name('top-seller');
+
+// add to cart
+Route::get('/addtocart', [CartController::class, 'viewCart'])->name('view.cart')->middleware('auth');
+Route::Post('addtocart/{id}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('auth');
 

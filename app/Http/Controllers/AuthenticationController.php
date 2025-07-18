@@ -26,7 +26,7 @@ class AuthenticationController extends Controller
     $products = $query->latest()->get();
 
     //  top sellers
-    $topSellers = Topseller::latest()->take(10)->get();
+    $topSellers = Product::latest()->take(10)->get();
 
     return view('dashboard', compact('products', 'category', 'topSellers'));
 }

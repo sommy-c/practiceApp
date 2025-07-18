@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/dashboardstyle.css') }}">
+
     <title>Document</title>
 </head>
 <body>
@@ -24,13 +26,13 @@
     <div class="auth-section" >
 
 
-  @if(Auth::user()->profile_image)
+  {{-- @if(Auth::user()->profile_image)
       <img src="{{ asset('storage/' . Auth::user()->profile_image) }}"
            alt="Profile"
            width="40"
            height="40"
            style="border-radius: 50%; object-fit: cover;">
-  @endif
+  @endif --}}
 
     <div class="auth-section">
       <p class="welcome">Welcome, <strong>{{ Auth::user()->name }}</strong></p>
